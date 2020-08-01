@@ -2,9 +2,8 @@
   <div id="app">
     <div class="card">
       <div class="card-block">
-        <button class="btn btn-primary">
-          sdfasd
-        </button>
+        <TextField label="Test" />
+        <button class="btn btn-primary">sdfasd</button>
       </div>
     </div>
   </div>
@@ -12,8 +11,15 @@
 
 <script lang="ts">
 import Vue from "vue";
+import TextField from "./components/form/TextField.vue";
 
 export default Vue.extend({
   name: "App",
+
+  props: {
+    text: String
+  },
+
+  components: { TextField }
 });
 </script>
