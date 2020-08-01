@@ -11,15 +11,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TextField from "./components/form/TextField.vue";
+import TextField from "./components/form/text-field/TextField.vue";
 
 export default Vue.extend({
   name: "App",
 
   props: {
-    text: String
+    text: String,
   },
 
-  components: { TextField }
+  components: { TextField },
 });
 </script>
