@@ -1,7 +1,6 @@
 <template>
-  <FieldWrapper :for-attr="id" :label="label" :hint="hint" :error="error">
-    <input
-      ref="inputFieldRef"
+  <FieldWrapper :id="id" :label="label" :hint="hint" :error="error">
+    <textarea
       :id="id"
       :name="name"
       :type="type"
@@ -20,7 +19,7 @@ import FieldWrapper from "../field-wrapper/FieldWrapper.vue";
 import Field from "../field/Field.vue";
 
 export default {
-  name: "TextField",
+  name: "TextAreaField",
 
   extends: Field,
 
@@ -29,22 +28,18 @@ export default {
   props: {
     type: {
       type: String,
-      default: "text",
-    },
-  },
-
-  computed: {
-    eventListeners() {
-      return { ...this.$listeners, input: this.onInput };
-    },
+      default: "text"
+    }
   },
 
   methods: {
-    onInput() {
+    onInput(event) {
       if (this.error && this.autoCleanErrors) {
         this.$emit("update:error", null);
       }
-    },
-  },
+
+      this.$emit("input", event.target.value);
+    }
+  }
 };
 </script>

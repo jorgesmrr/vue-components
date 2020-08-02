@@ -1,49 +1,55 @@
-import TextField from "./TextField";
+import SelectField from "./SelectField";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import { getDefaultFieldData } from "../../../utils/stories/form";
 
 export default {
-  title: "Form/TextField",
+  title: "Form/SelectField",
   decorators: [withKnobs],
 };
 
+const optionsTemplate = `
+<option>One</option>
+<option>Two</option>
+<option>Three</option>
+`;
+
 export const Default = () => ({
-  components: { TextField },
+  components: { SelectField },
   props: {
     ...getDefaultFieldData(),
   },
-  template: `<TextField :label="label" :placeholder="placeholder"/>`,
+  template: `<SelectField :label="label" :placeholder="placeholder">${optionsTemplate}</SelectField>`,
 });
 
 export const WithHint = () => ({
-  components: { TextField },
+  components: { SelectField },
   props: {
     ...getDefaultFieldData(),
     hint: {
       default: text("hint", "Be creative!"),
     },
   },
-  template: `<TextField :label="label" :placeholder="placeholder" :hint="hint"/>`,
+  template: `<SelectField :label="label" :placeholder="placeholder" :hint="hint"/>`,
 });
 
 export const Invalid = () => ({
-  components: { TextField },
+  components: { SelectField },
   props: {
     ...getDefaultFieldData(),
     error: {
       default: boolean("error", true),
     },
   },
-  template: `<TextField :label="label" :placeholder="placeholder" :error="error"/>`,
+  template: `<SelectField :label="label" :placeholder="placeholder" :error="error">${optionsTemplate}</SelectField>`,
 });
 
 export const InvalidWithMessage = () => ({
-  components: { TextField },
+  components: { SelectField },
   props: {
     ...getDefaultFieldData(),
     error: {
       default: text("error", "Required field"),
     },
   },
-  template: `<TextField :label="label" :placeholder="placeholder" :error="error"/>`,
+  template: `<SelectField :label="label" :placeholder="placeholder" :error="error">${optionsTemplate}</SelectField>`,
 });

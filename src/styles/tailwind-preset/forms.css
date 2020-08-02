@@ -1,55 +1,66 @@
 /** Basics **/
 
-input, select {
-    @apply rounded border border-neutral-2;
-    @apply px-2 py-1;
+input,
+select,
+textarea {
+  @apply rounded border border-neutral-2;
+  @apply px-2 py-1;
 }
 
-input:not([type=checkbox]):not([type=radio]), select {
-    @apply w-full;
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  @apply w-full;
 }
 
-input:hover, select:hover {
-    @apply border-primary-3;
+input:hover,
+select:hover,
+textarea:hover {
+  @apply border-primary-3;
 }
 
-input:active, select:active {
-    @apply border-neutral-5;
+input:active,
+select:active,
+textarea:active {
+  @apply border-neutral-5;
 }
 
 /** Form Groups **/
 
 .form-group {
-    @apply mb-4;
-    @apply block;
+  @apply mb-4;
+  @apply block;
 }
 
 .form-group label {
-    @apply mb-2;
+  @apply mb-2;
 }
 
-.form-group input:not([type=checkbox]):not([type=radio]), .form-group select, .form-group label {
-    @apply inline-block;
+.form-group input:not([type="checkbox"]):not([type="radio"]),
+.form-group select,
+.form-group label,
+.form-group textarea {
+  @apply inline-block;
 }
 
 /** Input Groups **/
 
 .input-group {
-    @apply inline-flex;
+  @apply inline-flex;
 }
 
 .input-group label,
 .input-group span {
-    @apply bg-neutral-2;
-    @apply rounded;
+  @apply bg-neutral-2;
+  @apply rounded;
 }
 
 .input-group :not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .input-group :not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }

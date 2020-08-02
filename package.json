@@ -6,6 +6,8 @@
     "build:styles": "postcss src/styles/main.css -o src/styles/main.output.css",
     "preserve": "npm run build:styles",
     "prebuild": "npm run build:styles",
+    "prestorybook": "npm run build:styles",
+    "prebuild-storybook": "npm run build:styles",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

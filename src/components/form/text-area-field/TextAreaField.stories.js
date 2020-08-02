@@ -1,49 +1,49 @@
-import TextField from "./TextField";
+import TextAreaField from "./TextAreaField";
 import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import { getDefaultFieldData } from "../../../utils/stories/form";
 
 export default {
-  title: "Form/TextField",
+  title: "Form/TextAreaField",
   decorators: [withKnobs],
 };
 
 export const Default = () => ({
-  components: { TextField },
+  components: { TextAreaField },
   props: {
     ...getDefaultFieldData(),
   },
-  template: `<TextField :label="label" :placeholder="placeholder"/>`,
+  template: `<TextAreaField :label="label" :placeholder="placeholder"/>`,
 });
 
 export const WithHint = () => ({
-  components: { TextField },
+  components: { TextAreaField },
   props: {
     ...getDefaultFieldData(),
     hint: {
       default: text("hint", "Be creative!"),
     },
   },
-  template: `<TextField :label="label" :placeholder="placeholder" :hint="hint"/>`,
+  template: `<TextAreaField :label="label" :placeholder="placeholder" :hint="hint"/>`,
 });
 
 export const Invalid = () => ({
-  components: { TextField },
+  components: { TextAreaField },
   props: {
     ...getDefaultFieldData(),
     error: {
       default: boolean("error", true),
     },
   },
-  template: `<TextField :label="label" :placeholder="placeholder" :error="error"/>`,
+  template: `<TextAreaField :label="label" :placeholder="placeholder" :error="error"/>`,
 });
 
 export const InvalidWithMessage = () => ({
-  components: { TextField },
+  components: { TextAreaField },
   props: {
     ...getDefaultFieldData(),
     error: {
       default: text("error", "Required field"),
     },
   },
-  template: `<TextField :label="label" :placeholder="placeholder" :error="error"/>`,
+  template: `<TextAreaField :label="label" :placeholder="placeholder" :error="error"/>`,
 });

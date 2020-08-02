@@ -1,15 +1,15 @@
 <template>
-  <div :class="{ 'form-group': !!label || !!hint || showErrorMessage }">
-    <label v-if="label || hint" :for="forAttr">
-      {{ formattedLabel }}
+  <div :class="{'form-group': !!label || !!hint || showErrorMessage}">
+    <label v-if="label || hint" :for="id">
+      {{formattedLabel}}
       <br v-if="label && hint" />
 
-      <small v-if="hint" class="text-secondary">{{ hint }}</small>
+      <small v-if="hint" class="text-neutral-3">{{hint}}</small>
     </label>
 
     <slot />
 
-    <small v-if="showErrorMessage" class="text-danger">{{ error }}</small>
+    <small v-if="showErrorMessage" class="text-danger-3">{{error}}</small>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     forAttr: String,
     label: String,
     hint: String,
-    error: [String, Boolean],
+    error: [String, Boolean]
   },
 
   computed: {
@@ -32,7 +32,7 @@ export default {
 
     showErrorMessage() {
       return this.error && typeof this.error === "string";
-    },
-  },
+    }
+  }
 };
 </script>
