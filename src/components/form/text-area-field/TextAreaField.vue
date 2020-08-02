@@ -1,5 +1,5 @@
 <template>
-  <FieldWrapper :id="id" :label="label" :hint="hint" :error="error">
+  <FieldWrapper :for-attr="id" :label="label" :hint="hint" :error="error">
     <textarea
       :id="id"
       :name="name"
@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import FieldWrapper from "../field-wrapper/FieldWrapper.vue";
-import Field from "../field/Field.vue";
+import FieldWrapper from "../field-wrapper/FieldWrapper";
+import Field from "../field/Field";
 
 export default {
   name: "TextAreaField",
@@ -28,8 +28,8 @@ export default {
   props: {
     type: {
       type: String,
-      default: "text"
-    }
+      default: "text",
+    },
   },
 
   methods: {
@@ -39,7 +39,7 @@ export default {
       }
 
       this.$emit("input", event.target.value);
-    }
-  }
+    },
+  },
 };
 </script>

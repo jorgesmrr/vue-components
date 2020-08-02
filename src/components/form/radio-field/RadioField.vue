@@ -8,7 +8,7 @@
       :value="value"
       @change="changed($event)"
     />
-    {{label}}
+    {{ label }}
   </label>
 </template>
 
@@ -18,7 +18,7 @@ export default {
 
   model: {
     prop: "modelValue",
-    event: "change"
+    event: "change",
   },
 
   props: {
@@ -27,11 +27,11 @@ export default {
     disabled: Boolean,
     label: String,
     modelValue: {
-      default: null
+      default: null,
     },
     value: {
-      default: ""
-    }
+      default: "",
+    },
   },
 
   methods: {
@@ -39,7 +39,7 @@ export default {
       if (event.target.checked) {
         this.$emit("change", this.value);
       }
-    }
-  }
+    },
+  },
 };
 </script>

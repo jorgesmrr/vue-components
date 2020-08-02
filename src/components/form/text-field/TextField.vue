@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import FieldWrapper from "../field-wrapper/FieldWrapper.vue";
-import Field from "../field/Field.vue";
+import FieldWrapper from "../field-wrapper/FieldWrapper";
+import Field from "../field/Field";
 
 export default {
   name: "TextField",

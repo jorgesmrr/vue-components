@@ -1,6 +1,6 @@
 /** Delimeters **/
 
-.content {
+.content-large {
   @apply mx-auto px-4;
   max-width: 1250px;
 }

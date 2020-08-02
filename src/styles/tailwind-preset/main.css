@@ -1,6 +1,7 @@
-@import "./buttons.css";
-@import "./frames.css";
-@import "./forms.css";
-@import "./lists.css";
-@import "./tables.css";
+@import "./button.css";
+@import "./frame.css";
+@import "./form.css";
+@import "./list.css";
+@import "./navigation.css";
+@import "./table.css";
 @import "./typography.css";
