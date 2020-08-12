@@ -53,3 +53,21 @@ export const InvalidWithMessage = () => ({
   },
   template: `<SelectField :label="label" :placeholder="placeholder" :error="error">${optionsTemplate}</SelectField>`,
 });
+
+export const Binding = () => ({
+  components: { SelectField },
+  data() {
+    return {
+      option: null,
+    };
+  },
+  template: `
+  <div>
+    <SelectField v-model="option">
+      <option value="A" label="A"/>
+      <option value="B" label="B"/>
+    </SelectField>
+    <label>Option {{option}}</label>
+  </div>
+  `,
+});

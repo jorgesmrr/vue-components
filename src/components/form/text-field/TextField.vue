@@ -9,7 +9,7 @@
       :value="value"
       :class="getInputClasses"
       :disabled="disabled"
-      v-on="eventListeners"
+      @input="onInput"
       @change="$emit('change', $event)"
     />
   </FieldWrapper>
@@ -29,14 +29,8 @@ export default {
   props: {
     type: {
       type: String,
-      default: "text",
-    },
-  },
-
-  computed: {
-    eventListeners() {
-      return { ...this.$listeners, input: this.onInput };
-    },
+      default: "text"
+    }
   },
 
   methods: {
@@ -44,7 +38,9 @@ export default {
       if (this.error && this.autoCleanErrors) {
         this.$emit("update:error", null);
       }
-    },
-  },
+
+      this.$emit("input", event.target.value);
+    }
+  }
 };
 </script>

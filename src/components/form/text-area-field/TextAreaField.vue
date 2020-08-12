@@ -3,12 +3,11 @@
     <textarea
       :id="id"
       :name="name"
-      :type="type"
       :placeholder="placeholder"
       :value="value"
       :class="getInputClasses"
       :disabled="disabled"
-      v-on="eventListeners"
+      @input="onInput"
       @change="$emit('change', $event)"
     />
   </FieldWrapper>
@@ -25,13 +24,6 @@ export default {
 
   components: { FieldWrapper },
 
-  props: {
-    type: {
-      type: String,
-      default: "text",
-    },
-  },
-
   methods: {
     onInput(event) {
       if (this.error && this.autoCleanErrors) {
@@ -39,7 +31,7 @@ export default {
       }
 
       this.$emit("input", event.target.value);
-    },
-  },
+    }
+  }
 };
 </script>

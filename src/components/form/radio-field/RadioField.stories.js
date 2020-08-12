@@ -15,3 +15,21 @@ export const Default = () => ({
   },
   template: `<RadioField :label="label"/>`,
 });
+
+export const Binding = () => ({
+  components: { RadioField },
+  data() {
+    return {
+      option: null,
+    };
+  },
+  template: `
+  <div>
+    <div>
+      <RadioField v-model="option" value="A" label="A"/>
+      <RadioField v-model="option" value="B" label="B"/>
+    </div>
+    <label>Option {{option}}</label>
+  </div>
+  `,
+});

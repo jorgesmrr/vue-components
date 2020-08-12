@@ -47,3 +47,18 @@ export const InvalidWithMessage = () => ({
   },
   template: `<TextAreaField :label="label" :placeholder="placeholder" :error="error"/>`,
 });
+
+export const Binding = () => ({
+  components: { TextAreaField },
+  data() {
+    return {
+      text: "",
+    };
+  },
+  template: `
+  <div>
+    <TextAreaField v-model="text"/>
+    <label>Text: {{text}}</label>
+  </div>
+  `,
+});

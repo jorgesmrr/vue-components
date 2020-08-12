@@ -1,6 +1,6 @@
 <template>
   <li class="drawer-item">
-    <a class="block px-4 py-2" :to="{ name: route, params: routeParams }">
+    <a class="block px-4 py-2" :href="link">
       {{ title }}
     </a>
   </li>
@@ -15,6 +15,7 @@ export default {
       type: String,
       required: true,
     },
+    link: String
   },
 };
 </script>

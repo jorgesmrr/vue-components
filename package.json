@@ -45,6 +45,13 @@
       "compiler": "bit.envs/compilers/vue@0.1.10"
     },
     "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "overrides": {
+      "styles": {
+        "env": {
+          "compiler": "-"
+        }
+      }
+    }
   }
 }

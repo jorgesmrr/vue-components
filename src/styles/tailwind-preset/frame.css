@@ -68,3 +68,16 @@
 .modal.open .modal-content {
   @apply opacity-100;
 }
+
+/** Popover **/
+
+.popover-wrapper {
+  @apply fixed z-40;
+  right: 1rem;
+}
+
+.popover {
+  @apply inline-block overflow-auto rounded whitespace-no-wrap bg-white shadow;
+  max-height: 100%;
+  max-width: 100%;
+}
