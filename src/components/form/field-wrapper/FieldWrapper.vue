@@ -4,7 +4,7 @@
       {{ formattedLabel }}
       <br v-if="label && hint" />
 
-      <small v-if="hint" class="text-neutral-3">{{ hint }}</small>
+      <small v-if="hint" class="text-neutral-6">{{ hint }}</small>
     </label>
 
     <slot />
@@ -21,7 +21,7 @@ export default {
     forAttr: String,
     label: String,
     hint: String,
-    error: [String, Boolean],
+    error: [String, Boolean]
   },
 
   computed: {
@@ -32,7 +32,7 @@ export default {
 
     showErrorMessage() {
       return this.error && typeof this.error === "string";
-    },
-  },
+    }
+  }
 };
 </script>

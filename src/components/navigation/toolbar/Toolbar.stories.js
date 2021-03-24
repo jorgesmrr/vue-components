@@ -1,17 +1,20 @@
 import Toolbar from "./Toolbar";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import ToolbarItem from "./../toolbar-item/ToolbarItem";
 
 export default {
-  title: "Navigation/Toolbar",
-  decorators: [withKnobs],
+    title: "Navigation/Toolbar",
+    component: Toolbar
 };
 
-export const Default = () => ({
-  components: { Toolbar },
-  props: {
-    label: {
-      default: text("label", "My field"),
-    },
-  },
-  template: `<Toolbar :label="label"/>`,
+const Template = (args, { argTypes }) => ({
+    components: { Toolbar, ToolbarItem },
+    props: Object.keys(argTypes),
+    template: `<Toolbar>
+    <ToolbarItem :title="label"/>
+    <ToolbarItem :title="label"/>
+    <ToolbarItem :title="label"/>
+    </Toolbar>`
 });
+
+export const Default = Template.bind({});
+Default.args = { label: "Item" };

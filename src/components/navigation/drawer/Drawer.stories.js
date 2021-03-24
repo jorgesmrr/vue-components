@@ -1,18 +1,17 @@
 import Drawer from "./Drawer";
 import DrawerItem from "../drawer-item/DrawerItem";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 export default {
-  title: "Navigation/Drawer",
-  decorators: [withKnobs],
+    title: "Navigation/Drawer",
+    component: Drawer
 };
 
 export const Default = () => ({
-  components: { Drawer, DrawerItem },
-  data() {
-    return { open: false };
-  },
-  template: `
+    components: { Drawer, DrawerItem },
+    data() {
+        return { open: false };
+    },
+    template: `
   <div class="relative">
     <Drawer v-model="open">
       <DrawerItem title="Item"/>
@@ -20,5 +19,5 @@ export const Default = () => ({
     <button class="btn btn-primary" @click="open = !open">
       Open Drawer
     </button>
-  </div>`,
+  </div>`
 });

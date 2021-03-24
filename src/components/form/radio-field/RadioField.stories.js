@@ -1,29 +1,18 @@
 import RadioField from "./RadioField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 export default {
-  title: "Form/RadioField",
-  decorators: [withKnobs],
+    title: "Form/RadioField",
+    component: RadioField
 };
 
 export const Default = () => ({
-  components: { RadioField },
-  props: {
-    label: {
-      default: text("label", "My field"),
+    components: { RadioField },
+    data() {
+        return {
+            option: null
+        };
     },
-  },
-  template: `<RadioField :label="label"/>`,
-});
-
-export const Binding = () => ({
-  components: { RadioField },
-  data() {
-    return {
-      option: null,
-    };
-  },
-  template: `
+    template: `
   <div>
     <div>
       <RadioField v-model="option" value="A" label="A"/>
@@ -31,5 +20,5 @@ export const Binding = () => ({
     </div>
     <label>Option {{option}}</label>
   </div>
-  `,
+  `
 });

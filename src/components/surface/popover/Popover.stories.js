@@ -1,17 +1,16 @@
 import Popover from "./Popover";
-import { withKnobs } from "@storybook/addon-knobs";
 
 export default {
-  title: "Surface/Popover",
-  decorators: [withKnobs],
+    title: "Surface/Popover",
+    component: Popover
 };
 
 export const Default = () => ({
-  components: { Popover },
-  data() {
-    return { open: false };
-  },
-  template: `
+    components: { Popover },
+    data() {
+        return { open: false };
+    },
+    template: `
   <div class="relative">
     <button class="btn btn-primary" ref="anchor" @click="open = !open">
       Open Popover
@@ -19,5 +18,5 @@ export const Default = () => ({
     <Popover v-model="open" :anchor-element="$refs.anchor">
       Example
     </Popover>
-  </div>`,
+  </div>`
 });

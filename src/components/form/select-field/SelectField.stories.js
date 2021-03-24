@@ -1,73 +1,44 @@
 import SelectField from "./SelectField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import { getDefaultFieldData } from "../../../utils/stories/form";
+import {
+    defaultAttrs,
+    getDefaultFieldData,
+    getDefaultFieldDataWithError,
+    getDefaultFieldDataWithErrorText,
+    getDefaultFieldDataWithHint
+} from "../../../utils/stories/form";
 
 export default {
-  title: "Form/SelectField",
-  decorators: [withKnobs],
+    title: "Form/SelectField",
+    component: SelectField
 };
 
-const optionsTemplate = `
-<option>One</option>
-<option>Two</option>
-<option>Three</option>
-`;
-
-export const Default = () => ({
-  components: { SelectField },
-  props: {
-    ...getDefaultFieldData(),
-  },
-  template: `<SelectField :label="label" :placeholder="placeholder">${optionsTemplate}</SelectField>`,
-});
-
-export const WithHint = () => ({
-  components: { SelectField },
-  props: {
-    ...getDefaultFieldData(),
-    hint: {
-      default: text("hint", "Be creative!"),
+const Template = (args, { argTypes }) => ({
+    components: { SelectField },
+    props: Object.keys(argTypes),
+    data() {
+        return {
+            option: null
+        };
     },
-  },
-  template: `<SelectField :label="label" :placeholder="placeholder" :hint="hint"/>`,
+    template: `
+    <div>
+      <SelectField v-model="option" ${defaultAttrs}>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+      </SelectField>
+      <label>Option {{option}}</label>
+    </div>`
 });
 
-export const Invalid = () => ({
-  components: { SelectField },
-  props: {
-    ...getDefaultFieldData(),
-    error: {
-      default: boolean("error", true),
-    },
-  },
-  template: `<SelectField :label="label" :placeholder="placeholder" :error="error">${optionsTemplate}</SelectField>`,
-});
+export const Default = Template.bind({});
+Default.args = getDefaultFieldData();
 
-export const InvalidWithMessage = () => ({
-  components: { SelectField },
-  props: {
-    ...getDefaultFieldData(),
-    error: {
-      default: text("error", "Required field"),
-    },
-  },
-  template: `<SelectField :label="label" :placeholder="placeholder" :error="error">${optionsTemplate}</SelectField>`,
-});
+export const WithHint = Template.bind({});
+WithHint.args = getDefaultFieldDataWithHint();
 
-export const Binding = () => ({
-  components: { SelectField },
-  data() {
-    return {
-      option: null,
-    };
-  },
-  template: `
-  <div>
-    <SelectField v-model="option">
-      <option value="A" label="A"/>
-      <option value="B" label="B"/>
-    </SelectField>
-    <label>Option {{option}}</label>
-  </div>
-  `,
-});
+export const Invalid = Template.bind({});
+Invalid.args = getDefaultFieldDataWithError();
+
+export const InvalidWithMessage = Template.bind({});
+InvalidWithMessage.args = getDefaultFieldDataWithErrorText();

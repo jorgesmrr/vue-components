@@ -2,7 +2,6 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 const extendedColorMapping = {
   primary: "blue",
-  neutral: "gray",
   info: "teal",
   success: "green",
   warning: "yellow",
@@ -22,6 +21,19 @@ for (const variant in extendedColorMapping) {
     5: defaultTheme.colors[color]["900"],
   };
 }
+
+extendedColors["neutral"] = {
+  1: "#E6E6E6",
+  2: "#CCCCCC",
+  3: "#B3B3B3",
+  4: "#999999",
+  5: "#808080",
+  6: "#737373",
+  7: "#5A5A5A",
+  8: "#404040",
+  9: "#262626",
+  10: "#0D0D0D",
+};
 
 module.exports = {
   theme: {

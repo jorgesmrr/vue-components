@@ -1,64 +1,40 @@
 import TextAreaField from "./TextAreaField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import { getDefaultFieldData } from "../../../utils/stories/form";
+import {
+    defaultAttrs,
+    getDefaultFieldData,
+    getDefaultFieldDataWithError,
+    getDefaultFieldDataWithErrorText,
+    getDefaultFieldDataWithHint
+} from "../../../utils/stories/form";
 
 export default {
-  title: "Form/TextAreaField",
-  decorators: [withKnobs],
+    title: "Form/TextAreaField",
+    component: TextAreaField
 };
 
-export const Default = () => ({
-  components: { TextAreaField },
-  props: {
-    ...getDefaultFieldData(),
-  },
-  template: `<TextAreaField :label="label" :placeholder="placeholder"/>`,
-});
-
-export const WithHint = () => ({
-  components: { TextAreaField },
-  props: {
-    ...getDefaultFieldData(),
-    hint: {
-      default: text("hint", "Be creative!"),
+const Template = (args, { argTypes }) => ({
+    components: { TextAreaField },
+    props: Object.keys(argTypes),
+    data() {
+        return {
+            text: ""
+        };
     },
-  },
-  template: `<TextAreaField :label="label" :placeholder="placeholder" :hint="hint"/>`,
+    template: `
+    <div>
+    <TextAreaField v-model="text"  ${defaultAttrs}/>
+      <label>Text: {{text}}</label>
+    </div>`
 });
 
-export const Invalid = () => ({
-  components: { TextAreaField },
-  props: {
-    ...getDefaultFieldData(),
-    error: {
-      default: boolean("error", true),
-    },
-  },
-  template: `<TextAreaField :label="label" :placeholder="placeholder" :error="error"/>`,
-});
+export const Default = Template.bind({});
+Default.args = getDefaultFieldData();
 
-export const InvalidWithMessage = () => ({
-  components: { TextAreaField },
-  props: {
-    ...getDefaultFieldData(),
-    error: {
-      default: text("error", "Required field"),
-    },
-  },
-  template: `<TextAreaField :label="label" :placeholder="placeholder" :error="error"/>`,
-});
+export const WithHint = Template.bind({});
+WithHint.args = getDefaultFieldDataWithHint();
 
-export const Binding = () => ({
-  components: { TextAreaField },
-  data() {
-    return {
-      text: "",
-    };
-  },
-  template: `
-  <div>
-    <TextAreaField v-model="text"/>
-    <label>Text: {{text}}</label>
-  </div>
-  `,
-});
+export const Invalid = Template.bind({});
+Invalid.args = getDefaultFieldDataWithError();
+
+export const InvalidWithMessage = Template.bind({});
+InvalidWithMessage.args = getDefaultFieldDataWithErrorText();

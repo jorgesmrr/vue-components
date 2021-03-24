@@ -1,20 +1,18 @@
 import DrawerItem from "./DrawerItem";
-import { withKnobs, text } from "@storybook/addon-knobs";
 
 export default {
-  title: "Navigation/DrawerItem",
-  decorators: [withKnobs],
+    title: "Navigation/DrawerItem",
+    component: DrawerItem
 };
 
-export const Default = () => ({
-  components: { DrawerItem },
-  props: {
-    title: {
-      default: text("title", "Item"),
-    },
-  },
-  template: `
+const Template = (args, { argTypes }) => ({
+    components: { DrawerItem },
+    props: Object.keys(argTypes),
+    template: `
   <ul>
     <DrawerItem :title="title"/>
-  </ul>`,
+  </ul>`
 });
+
+export const Default = Template.bind({});
+Default.args = { title: "Item" };

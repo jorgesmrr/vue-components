@@ -1,29 +1,18 @@
 import CheckboxField from "./CheckboxField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 export default {
-  title: "Form/CheckboxField",
-  decorators: [withKnobs],
+    title: "Form/CheckboxField",
+    component: CheckboxField
 };
 
 export const Default = () => ({
-  components: { CheckboxField },
-  props: {
-    label: {
-      default: text("label", "My field"),
+    components: { CheckboxField },
+    data() {
+        return {
+            checked: false
+        };
     },
-  },
-  template: `<CheckboxField :label="label"/>`,
-});
-
-export const Binding = () => ({
-  components: { CheckboxField },
-  data() {
-    return {
-      checked: false,
-    };
-  },
-  template: `
+    template: `
   <div>
     <div>
       <CheckboxField v-model="checked" label="Text"/>
@@ -31,5 +20,5 @@ export const Binding = () => ({
     <label v-if="checked">Checked</label>
     <label v-else>Unchecked</label>
   </div>
-  `,
+  `
 });

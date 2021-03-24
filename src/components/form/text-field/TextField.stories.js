@@ -1,64 +1,41 @@
 import TextField from "./TextField";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-import { getDefaultFieldData } from "../../../utils/stories/form";
+import {
+    defaultAttrs,
+    getDefaultFieldData,
+    getDefaultFieldDataWithError,
+    getDefaultFieldDataWithErrorText,
+    getDefaultFieldDataWithHint
+} from "../../../utils/stories/form";
 
 export default {
-  title: "Form/TextField",
-  decorators: [withKnobs],
+    title: "Form/TextField",
+    component: TextField
 };
 
-export const Default = () => ({
-  components: { TextField },
-  props: {
-    ...getDefaultFieldData(),
-  },
-  template: `<TextField :label="label" :placeholder="placeholder"/>`,
-});
-
-export const WithHint = () => ({
-  components: { TextField },
-  props: {
-    ...getDefaultFieldData(),
-    hint: {
-      default: text("hint", "Be creative!"),
+const Template = (args, { argTypes }) => ({
+    components: { TextField },
+    props: Object.keys(argTypes),
+    data() {
+        return {
+            text: ""
+        };
     },
-  },
-  template: `<TextField :label="label" :placeholder="placeholder" :hint="hint"/>`,
-});
-
-export const Invalid = () => ({
-  components: { TextField },
-  props: {
-    ...getDefaultFieldData(),
-    error: {
-      default: boolean("error", true),
-    },
-  },
-  template: `<TextField :label="label" :placeholder="placeholder" :error="error"/>`,
-});
-
-export const InvalidWithMessage = () => ({
-  components: { TextField },
-  props: {
-    ...getDefaultFieldData(),
-    error: {
-      default: text("error", "Required field"),
-    },
-  },
-  template: `<TextField :label="label" :placeholder="placeholder" :error="error"/>`,
-});
-
-export const Binding = () => ({
-  components: { TextField },
-  data() {
-    return {
-      text: "",
-    };
-  },
-  template: `
+    template: `
   <div>
-    <TextField v-model="text"/>
+    <TextField v-model="text" ${defaultAttrs}/>
     <label>Text: {{text}}</label>
   </div>
-  `,
+  `
 });
+
+export const Default = Template.bind({});
+Default.args = getDefaultFieldData();
+
+export const WithHint = Template.bind({});
+WithHint.args = getDefaultFieldDataWithHint();
+
+export const Invalid = Template.bind({});
+Invalid.args = getDefaultFieldDataWithError();
+
+export const InvalidWithMessage = Template.bind({});
+InvalidWithMessage.args = getDefaultFieldDataWithErrorText();

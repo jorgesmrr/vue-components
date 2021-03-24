@@ -22,7 +22,7 @@ textarea:hover {
 input:active,
 select:active,
 textarea:active {
-  @apply border-neutral-5;
+  @apply border-neutral-10;
 }
 
 /** Form Groups **/
