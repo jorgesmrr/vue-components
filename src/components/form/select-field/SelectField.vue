@@ -1,55 +1,60 @@
 <template>
-  <FieldWrapper :for-attr="id" :label="label" :hint="hint" :error="error">
-    <div>
-      <select
+    <select
         v-model="innerValue"
         :id="id"
         :placeholder="placeholder"
-        :class="{ 'border-danger-2': error }"
+        :class="{ 'input-error': error }"
         :disabled="disabled"
-      >
-        <option v-if="placeholder" :value="null" disabled>{{
-          placeholder
-        }}</option>
+    >
+        <option v-if="placeholder" :value="null" disabled
+            >{{ placeholder }}
+        </option>
         <slot />
-      </select>
-    </div>
-  </FieldWrapper>
+    </select>
 </template>
 
 <script>
-import Field from "../field/Field";
-import FieldWrapper from "../field-wrapper/FieldWrapper";
-
 export default {
-  name: "SelectField",
+    name: "SelectField",
 
-  extends: Field,
+    props: {
+        id: String,
+        name: String,
+        disabled: Boolean,
+        placeholder: String,
 
-  components: { FieldWrapper },
+        value: {
+            default: null
+        },
 
-  model: {
-    event: "change",
-  },
-
-  data() {
-    return {
-      innerValue: this.value,
-    };
-  },
-
-  watch: {
-    value(to) {
-      this.innerValue = to;
+        autoCleanErrors: {
+            type: Boolean,
+            default: true
+        }
     },
 
-    innerValue(to) {
-      if (this.error && this.autoCleanErrors) {
-        this.$emit("update:error", null);
-      }
-
-      this.$emit("change", to);
+    model: {
+        event: "change"
     },
-  },
+
+    data() {
+        return {
+            innerValue: this.value
+        };
+    },
+
+    watch: {
+        value(to) {
+            this.innerValue = to;
+        },
+
+        innerValue(to) {
+            if (this.error && this.autoCleanErrors) {
+                this.$emit("update:error", null);
+            }
+
+            this.$emit("change", to);
+        }
+    }
 };
 </script>

@@ -1,4 +1,5 @@
 import SelectField from "./SelectField";
+import Field from "./../field/Field";
 import {
     defaultAttrs,
     getDefaultFieldData,
@@ -13,7 +14,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-    components: { SelectField },
+    components: { SelectField, Field },
     props: Object.keys(argTypes),
     data() {
         return {
@@ -21,14 +22,14 @@ const Template = (args, { argTypes }) => ({
         };
     },
     template: `
-    <div>
-      <SelectField v-model="option" ${defaultAttrs}>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-      </SelectField>
-      <label>Option {{option}}</label>
-    </div>`
+        <Field ${defaultAttrs}>
+        <SelectField v-model="option">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+        </SelectField>
+        <label>Option {{ option }}</label>
+        </Field>`
 });
 
 export const Default = Template.bind({});

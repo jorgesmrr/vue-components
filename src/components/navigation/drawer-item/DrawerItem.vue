@@ -1,21 +1,21 @@
 <template>
-  <li class="drawer-item">
-    <a class="block px-4 py-2" :href="link">
-      {{ title }}
-    </a>
-  </li>
+    <li class="drawer-item">
+        <a class="block px-4 py-2" :href="link">
+            {{ title }}
+        </a>
+    </li>
 </template>
 
 <script>
 export default {
-  name: "DrawerItem",
+    name: "DrawerItem",
 
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    link: String
-  },
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        link: String
+    }
 };
 </script>

@@ -1,15 +1,15 @@
 <template>
-  <div class="scrollable-container">
-    <slot name="fixed-top" />
-    <div class="scrollable-content">
-      <slot />
+    <div class="scrollable-container">
+        <slot name="fixed-top" />
+        <div class="scrollable-content">
+            <slot />
+        </div>
+        <slot name="fixed-bottom" />
     </div>
-    <slot name="fixed-bottom" />
-  </div>
 </template>
 
 <script>
 export default {
-  name: "Scrollable",
+    name: "Scrollable"
 };
 </script>

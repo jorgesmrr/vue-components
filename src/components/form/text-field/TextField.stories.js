@@ -1,4 +1,5 @@
 import TextField from "./TextField";
+import Field from "./../field/Field";
 import {
     defaultAttrs,
     getDefaultFieldData,
@@ -13,7 +14,7 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-    components: { TextField },
+    components: { TextField, Field },
     props: Object.keys(argTypes),
     data() {
         return {
@@ -21,10 +22,10 @@ const Template = (args, { argTypes }) => ({
         };
     },
     template: `
-  <div>
-    <TextField v-model="text" ${defaultAttrs}/>
-    <label>Text: {{text}}</label>
-  </div>
+    <Field ${defaultAttrs}>
+    <TextField v-model="text" ${defaultAttrs} />
+    <label>Text: {{ text }}</label>
+    </Field>
   `
 });
 

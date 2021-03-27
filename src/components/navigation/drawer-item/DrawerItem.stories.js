@@ -9,9 +9,7 @@ const Template = (args, { argTypes }) => ({
     components: { DrawerItem },
     props: Object.keys(argTypes),
     template: `
-  <ul>
-    <DrawerItem :title="title"/>
-  </ul>`
+    <DrawerItem :title="title"/>`
 });
 
 export const Default = Template.bind({});
