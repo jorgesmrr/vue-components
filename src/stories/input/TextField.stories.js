@@ -1,12 +1,12 @@
-import TextField from "./TextField";
-import Field from "./../field/Field";
+import TextField from "../../components/input/text-field/TextField";
+import Field from "../../components/input/field/Field";
 import {
     defaultAttrs,
     getDefaultFieldData,
     getDefaultFieldDataWithError,
     getDefaultFieldDataWithErrorText,
     getDefaultFieldDataWithHint
-} from "../../../utils/stories/form";
+} from "../../utils/stories/form";
 
 export default {
     title: "Form/TextField",

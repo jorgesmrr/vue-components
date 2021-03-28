@@ -50,8 +50,6 @@ export default {
 </script>
 
 <style scoped>
-/** Modals **/
-
 .modal {
     position: fixed;
     display: none;

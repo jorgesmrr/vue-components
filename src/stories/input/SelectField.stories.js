@@ -1,12 +1,12 @@
-import SelectField from "./SelectField";
-import Field from "./../field/Field";
+import SelectField from "../../components/input/select-field/SelectField";
+import Field from "../../components/input/field/Field";
 import {
     defaultAttrs,
     getDefaultFieldData,
     getDefaultFieldDataWithError,
     getDefaultFieldDataWithErrorText,
     getDefaultFieldDataWithHint
-} from "../../../utils/stories/form";
+} from "../../utils/stories/form";
 
 export default {
     title: "Form/SelectField",

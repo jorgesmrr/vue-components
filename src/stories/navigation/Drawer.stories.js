@@ -1,5 +1,4 @@
-import Drawer from "./Drawer";
-import DrawerItem from "../drawer-item/DrawerItem";
+import Drawer from "../../components/navigation/drawer/Drawer";
 
 export default {
     title: "Navigation/Drawer",
@@ -7,14 +6,14 @@ export default {
 };
 
 export const Default = () => ({
-    components: { Drawer, DrawerItem },
+    components: { Drawer },
     data() {
         return { open: false };
     },
     template: `
   <div class="relative">
     <Drawer v-model="open">
-      <DrawerItem title="Item"/>
+      Content
     </Drawer>
     <button class="btn btn-primary" @click="open = !open">
       Open Drawer

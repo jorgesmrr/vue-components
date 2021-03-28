@@ -1,12 +1,12 @@
-import TextAreaField from "./TextAreaField";
-import Field from "./../field/Field";
+import TextAreaField from "../../components/input/text-area-field/TextAreaField";
+import Field from "../../components/input/field/Field";
 import {
     defaultAttrs,
     getDefaultFieldData,
     getDefaultFieldDataWithError,
     getDefaultFieldDataWithErrorText,
     getDefaultFieldDataWithHint
-} from "../../../utils/stories/form";
+} from "../../utils/stories/form";
 
 export default {
     title: "Form/TextAreaField",

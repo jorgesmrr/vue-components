@@ -1,4 +1,4 @@
-import RadioField from "./RadioField";
+import RadioField from "../../components/input/radio-field/RadioField";
 
 export default {
     title: "Form/RadioField",

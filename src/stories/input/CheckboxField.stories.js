@@ -1,4 +1,4 @@
-import CheckboxField from "./CheckboxField";
+import CheckboxField from "../../components/input/checkbox-field/CheckboxField";
 
 export default {
     title: "Form/CheckboxField",
