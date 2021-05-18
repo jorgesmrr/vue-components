@@ -40,6 +40,7 @@ export default {
     overflow: auto;
     transition: transform 150ms ease-in-out;
     max-width: 70vw;
+    width: 16rem;
 }
 
 .drawer:not(.open) {

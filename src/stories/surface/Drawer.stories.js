@@ -1,7 +1,7 @@
-import Drawer from "../../components/navigation/drawer/Drawer";
+import Drawer from "../../components/surface/drawer/Drawer";
 
 export default {
-    title: "Navigation/Drawer",
+    title: "Surface/Drawer",
     component: Drawer
 };
 

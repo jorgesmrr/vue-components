@@ -1,5 +1,5 @@
 <template>
-    <div :class="field">
+    <div class="field">
         <label v-if="label" :for="forAttr">
             {{ label }}
             <template v-if="hint">
@@ -32,3 +32,9 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.field label {
+    display: block;
+}
+</style>

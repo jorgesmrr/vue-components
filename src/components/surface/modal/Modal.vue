@@ -1,5 +1,10 @@
 <template>
-    <div class="modal" :class="{ open: show }" @mousedown="handleClick($event)">
+    <div
+        class="modal"
+        :class="{ open: show }"
+        :style="{ '--modal-width': width }"
+        @mousedown="handleClick($event)"
+    >
         <div class="modal-content">
             <slot />
         </div>
@@ -24,6 +29,11 @@ export default {
         allowDismiss: {
             type: Boolean,
             default: true
+        },
+
+        width: {
+            type: String,
+            default: "25rem"
         }
     },
 
@@ -70,13 +80,6 @@ export default {
     opacity: 0;
 }
 
-@media (min-width: 576px) {
-    .modal .modal-content {
-        width: 400px;
-        margin: 2rem auto 2rem;
-    }
-}
-
 .modal.open {
     display: block;
     animation: showModal 0.4s forwards;
@@ -84,6 +87,14 @@ export default {
 
 .modal.open .modal-content {
     animation: showModalBody 0.4s forwards;
+}
+
+@media (min-width: 1024px) {
+    .modal .modal-content {
+        width: var(--modal-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @keyframes showModal {
@@ -97,7 +108,7 @@ export default {
 
 @keyframes showModalBody {
     from {
-        top: -300px;
+        top: -19rem;
         opacity: 0;
     }
     to {
