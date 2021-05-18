@@ -8,7 +8,7 @@ You can install each component individually, using NPM or Yarn. They are availab
 
 ## Live preview
 
-Visit the Storybook at Chromatic: https://www.chromatic.com/library?appId=60a44b38bd1cba003b36e5bc&groupPrefix=Surface
+Visit the Storybook at Chromatic: https://www.chromatic.com/library?appId=60a44b38bd1cba003b36e5bc
 
 ## Local preview
 
