@@ -1,62 +1,61 @@
 {
-  "name": "headless-vue",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build:styles": "postcss src/styles/main.css -o src/styles/main.output.css",
-    "preserve": "npm run build:styles",
-    "prebuild": "npm run build:styles",
-    "prestorybook": "npm run build:styles",
-    "prebuild-storybook": "npm run build:styles",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -s public",
-    "chromatic": "npx chromatic --project-token=109b02c10216"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "postcss-cli": "^7.1.1",
-    "postcss-import": "^12.0.1",
-    "tailwindcss": "^1.6.0",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.11.0",
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-essentials": "^6.1.21",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/addons": "^6.1.21",
-    "@storybook/vue": "^6.1.21",
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-loader": "^8.1.0",
-    "babel-preset-vue": "^2.0.2",
-    "chromatic": "^5.8.1",
-    "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-vue": "^6.2.2",
-    "prettier": "^1.19.1",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "bit": {
-    "env": {
-      "compiler": "bit.envs/compilers/vue@0.1.10"
+    "name": "headless-vue",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "build:styles": "postcss src/styles/main.css -o src/styles/main.output.css",
+        "preserve": "npm run build:styles",
+        "prebuild": "npm run build:styles",
+        "prestorybook": "npm run build:styles",
+        "prebuild-storybook": "npm run build:styles",
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook -s public"
     },
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm",
-    "overrides": {
-      "styles": {
+    "dependencies": {
+        "core-js": "^3.6.5",
+        "postcss-cli": "^7.1.1",
+        "postcss-import": "^12.0.1",
+        "tailwindcss": "^1.6.0",
+        "vue": "^2.6.11"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.11.0",
+        "@storybook/addon-actions": "^6.1.21",
+        "@storybook/addon-essentials": "^6.1.21",
+        "@storybook/addon-links": "^6.1.21",
+        "@storybook/addons": "^6.1.21",
+        "@storybook/vue": "^6.1.21",
+        "@vue/cli-plugin-babel": "~4.4.0",
+        "@vue/cli-plugin-eslint": "~4.4.0",
+        "@vue/cli-service": "~4.4.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "babel-loader": "^8.1.0",
+        "babel-preset-vue": "^2.0.2",
+        "chromatic": "^5.8.1",
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-vue": "^6.2.2",
+        "prettier": "^1.19.1",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "bit": {
         "env": {
-          "compiler": "-"
+            "compiler": "bit.envs/compilers/vue@0.1.10"
+        },
+        "componentsDefaultDirectory": "components/{name}",
+        "packageManager": "npm",
+        "overrides": {
+            "styles": {
+                "env": {
+                    "compiler": "-"
+                }
+            }
         }
-      }
+    },
+    "prettier": {
+        "tabWidth": 4
     }
-  },
-  "prettier": {
-    "tabWidth": 4
-  }
 }
