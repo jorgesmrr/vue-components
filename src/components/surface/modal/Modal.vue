@@ -1,11 +1,11 @@
 <template>
     <div
         class="modal"
-        :class="{ open: show }"
+        :class="{ 'modal--open': show }"
         :style="{ '--modal-width': width }"
         @mousedown="handleClick($event)"
     >
-        <div class="modal-content">
+        <div class="modal__content">
             <slot />
         </div>
     </div>
@@ -48,7 +48,7 @@ export default {
         handleClick(event) {
             if (
                 event.target.classList.contains("modal") ||
-                event.target.classList.contains("modal-content")
+                event.target.classList.contains("modal__content")
             ) {
                 event.preventDefault();
                 event.stopPropagation();
@@ -73,24 +73,24 @@ export default {
     background-color: #00000044;
 }
 
-.modal .modal-content {
+.modal__content {
     position: relative;
     margin: 2rem;
     height: calc(100vh - 4rem);
     opacity: 0;
 }
 
-.modal.open {
+.modal--open {
     display: block;
     animation: showModal 0.4s forwards;
 }
 
-.modal.open .modal-content {
+.modal--open .modal__content {
     animation: showModalBody 0.4s forwards;
 }
 
 @media (min-width: 1024px) {
-    .modal .modal-content {
+    .modal__content {
         width: var(--modal-width);
         margin-left: auto;
         margin-right: auto;
